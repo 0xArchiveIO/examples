@@ -1,76 +1,91 @@
-# 0xArchive SDK Examples
+# 0xArchive Examples
 
-Example data projects built with the [0xArchive Python SDK](https://pypi.org/project/oxarchive/).
+Notebook projects that turn 0xArchive market data into working analysis.
+
+0xArchive is granular market data infrastructure for Hyperliquid and Lighter.xyz. HIP-3 builder perps live under the Hyperliquid namespace. Use these examples when you want proof before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
+
+## Start Here
+
+1. Create an account at [0xArchive signup](https://www.0xarchive.io/signup).
+2. Copy an API key from the dashboard.
+3. Choose the notebook that matches the dataset you want to inspect.
+4. Run the notebook once before adapting it into a pipeline.
+
+```bash
+cp .env.example .env
+# Add OXARCHIVE_API_KEY=0xa_your_api_key to .env
+```
 
 ## Projects
 
-### [Liquidation Heatmap](liquidation-heatmap/)
+| Project | Dataset | Venue scope | Tier | First output |
+| --- | --- | --- | --- | --- |
+| [Liquidation Heatmap](liquidation-heatmap/) | Liquidation events and price context | Hyperliquid | Free key for supported BTC workflows | Heatmap and scatter views of BTC liquidation clusters |
+| [Funding Rate Scanner](funding-rate-scanner/) | Funding rates and spread calculations | Hyperliquid and Lighter.xyz | Free key for supported BTC workflows | Cross-venue funding chart, spread bands, and carry view |
+| [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades, candles | Hyperliquid HIP-3 | Pro+ for broad HIP-3 history | Dashboard for builder-perp price, flow, and derivatives context |
 
-A Jupyter notebook that visualizes BTC liquidation events on Hyperliquid. Includes:
-
-- Price vs time heatmap of liquidation clusters
-- Scatter plot with long/short coloring and price overlay
-- Time-of-day and day-of-week analysis
-- Liquidation size distribution
-- Cascade detection (P99 burst events)
-- Long vs short imbalance over time
-
-**Quick start:**
+## Liquidation Heatmap
 
 ```bash
 cd liquidation-heatmap
 pip install -r requirements.txt
-cp .env.example .env        # then add your API key
+cp .env.example .env
 jupyter notebook liquidation_heatmap.ipynb
 ```
 
-**Requirements:** Free tier API key — [0xarchive.io/dashboard](https://0xarchive.io/dashboard)
+Outputs:
 
-### [Funding Rate Scanner](funding-rate-scanner/)
+- Price-vs-time liquidation heatmap
+- Long/short liquidation scatter plot
+- Time-of-day and day-of-week views
+- Size distribution and P99 cascade detection
 
-A Jupyter notebook that compares BTC funding rates across Hyperliquid and Lighter.xyz. Includes:
-
-- Cross-exchange funding rate comparison (side-by-side line chart)
-- Rate differential / spread with ±2σ threshold bands
-- Annualized carry visualization (APR from rate differential)
-- Arbitrage opportunity window detection
-- Cumulative hypothetical P&L from spread-harvesting
-- Distribution analysis with skew/kurtosis stats
-
-**Quick start:**
+## Funding Rate Scanner
 
 ```bash
 cd funding-rate-scanner
 pip install -r requirements.txt
-cp .env.example .env        # then add your API key
+cp .env.example .env
 jupyter notebook funding_rate_scanner.ipynb
 ```
 
-**Requirements:** Free tier API key — [0xarchive.io/dashboard](https://0xarchive.io/dashboard)
+Outputs:
 
-### [HIP-3 Asset Dashboard](hip3-asset-dashboard/)
+- Hyperliquid vs Lighter funding comparison
+- Funding spread with two-standard-deviation bands
+- Annualized carry view
+- Opportunity window and distribution summaries
 
-A Jupyter notebook that visualizes funding rates, open interest, and trade flow for HIP-3 builder perps on Hyperliquid. Includes:
-
-- Funding rate time series with positive/negative shading and annualized APR view
-- Funding rate distribution with skew/kurtosis statistics
-- Open interest vs price overlay and OI rate-of-change analysis
-- Buy/sell volume breakdown and cumulative volume delta
-- Price action with volume bars and open interest
-- Hourly volume profile (volume, fill count, avg fill size)
-- Trade size distribution with summary statistics
-
-**Quick start:**
+## HIP-3 Asset Dashboard
 
 ```bash
 cd hip3-asset-dashboard
 pip install -r requirements.txt
-cp .env.example .env        # then add your API key
+cp .env.example .env
 jupyter notebook hip3_asset_dashboard.ipynb
 ```
 
-**Requirements:** Pro+ API key — [0xarchive.io/dashboard](https://0xarchive.io/dashboard) (HIP-3 data is not available on the free tier)
+Outputs:
+
+- Hyperliquid HIP-3 funding, open interest, and trade-flow views
+- Funding distribution and annualized APR view
+- Volume, fill-count, and trade-size summaries
+- Price, volume, and open-interest overlays
+
+## Choose Your Next Path
+
+| If you want... | Go here |
+| --- | --- |
+| A recurring API loop | [SDK docs](https://www.0xarchive.io/docs/sdks) |
+| A shell or agent workflow | [CLI docs](https://www.0xarchive.io/docs/cli) |
+| Claude Code, GPT Codex, or other coding-agent context | [AI Clients](https://www.0xarchive.io/docs/ai-clients) |
+| File-based historical pulls | [Data Catalog](https://www.0xarchive.io/data) |
+| Route, schema, and auth details | [Quick Start](https://www.0xarchive.io/docs/quick-start), [OpenAPI](https://www.0xarchive.io/openapi.json), [llms.txt](https://www.0xarchive.io/llms.txt) |
 
 ## Requirements
 
 - Python 3.10+
+- Jupyter Notebook
+- An 0xArchive API key
+
+No notebook should require secrets in source control. Keep API keys in local `.env` files only.
