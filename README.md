@@ -2,7 +2,7 @@
 
 Notebook projects that turn 0xArchive market data into working analysis.
 
-0xArchive is granular market data infrastructure for Hyperliquid and Lighter.xyz. HIP-3 builder perps live under the Hyperliquid namespace. Use these examples when you want proof before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
+0xArchive is granular market data infrastructure for Hyperliquid and Lighter.xyz. Hyperliquid includes core perps, HIP-3 builder perps, HIP-4 outcome markets, and Hyperliquid Spot; Lighter.xyz is the second top-level venue API. Use these examples when you want proof before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
 
 ## Start Here
 
@@ -78,9 +78,19 @@ Outputs:
 | --- | --- |
 | A recurring API loop | [SDK docs](https://www.0xarchive.io/docs/sdks) |
 | A shell or agent workflow | [CLI docs](https://www.0xarchive.io/docs/cli) |
-| Claude Code, GPT Codex, or other coding-agent context | [AI Clients](https://www.0xarchive.io/docs/ai-clients) |
+| Claude Code, ChatGPT Codex, or other coding-agent context | [AI Clients](https://www.0xarchive.io/docs/ai-clients) |
 | File-based historical pulls | [Data Catalog](https://www.0xarchive.io/data) |
 | Route, schema, and auth details | [Quick Start](https://www.0xarchive.io/docs/quick-start), [OpenAPI](https://www.0xarchive.io/openapi.json), [llms.txt](https://www.0xarchive.io/llms.txt) |
+
+## Links
+
+- [API Docs](https://www.0xarchive.io/docs)
+- [Python SDK](https://pypi.org/project/oxarchive/)
+- [TypeScript SDK](https://npmjs.com/package/@0xarchive/sdk)
+- [Rust SDK](https://crates.io/crates/oxarchive)
+- [CLI](https://npmjs.com/package/@0xarchive/cli)
+- [MCP Server](https://npmjs.com/package/@0xarchive/mcp-server)
+- [0xArchive Skill](https://github.com/0xArchiveIO/0xarchive-skill)
 
 ## Requirements
 
