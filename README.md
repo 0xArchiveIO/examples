@@ -22,7 +22,7 @@ cp .env.example .env
 | --- | --- | --- | --- | --- |
 | [Liquidation Heatmap](liquidation-heatmap/) | Liquidation events and price context | Hyperliquid | Free key for supported BTC workflows | Heatmap and scatter views of BTC liquidation clusters |
 | [Funding Rate Scanner](funding-rate-scanner/) | Funding rates and spread calculations | Hyperliquid and Lighter.xyz | Free key for supported BTC workflows | Cross-venue funding chart, spread bands, and carry view |
-| [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades, candles | Hyperliquid HIP-3 | Pro+ for broad HIP-3 history | Dashboard for builder-perp price, flow, and derivatives context |
+| [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades, candles | Hyperliquid HIP-3 | Free key for HIP-3 workflows | Dashboard for builder-perp price, flow, and derivatives context |
 
 ## Liquidation Heatmap
 
