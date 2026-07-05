@@ -2,7 +2,7 @@
 
 Notebook projects that turn 0xArchive market data into working analysis.
 
-0xArchive is granular market data infrastructure for Hyperliquid and Lighter.xyz. Hyperliquid includes core perps, HIP-3 builder perps, HIP-4 outcome markets, and Hyperliquid Spot; Lighter.xyz is the second top-level venue API. Use these examples when you want proof before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
+0xArchive is granular market data infrastructure for Hyperliquid and Lighter.xyz. Hyperliquid includes core perps, HIP-3 builder perps, HIP-4 outcome markets, and Hyperliquid Spot; Lighter.xyz is the second top-level venue API. Use these examples when you want to verify before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
 
 ## Start Here
 
