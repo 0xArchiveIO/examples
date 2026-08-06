@@ -89,7 +89,7 @@ Outputs:
 - [TypeScript SDK](https://npmjs.com/package/@0xarchive/sdk)
 - [Rust SDK](https://crates.io/crates/oxarchive)
 - [CLI](https://npmjs.com/package/@0xarchive/cli)
-- [MCP Server](https://mcp.0xarchive.io) (or [self-host](https://npmjs.com/package/@0xarchive/mcp-server))
+- [MCP Server](https://mcp.0xarchive.io)
 - [0xArchive Skill](https://github.com/0xArchiveIO/0xarchive-skill)
 
 ## Requirements
