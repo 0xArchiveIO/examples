@@ -23,6 +23,7 @@ cp .env.example .env
 | [Liquidation Heatmap](liquidation-heatmap/) | Liquidation events and price context | Hyperliquid | Free key for supported BTC workflows | Heatmap and scatter views of BTC liquidation clusters |
 | [Funding Rate Scanner](funding-rate-scanner/) | Funding rates and spread calculations | Hyperliquid and Lighter.xyz | Free key for supported BTC workflows | Cross-venue funding chart, spread bands, and carry view |
 | [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades, candles | Hyperliquid HIP-3 | Free key for HIP-3 workflows | Dashboard for builder-perp price, flow, and derivatives context |
+| [Lighter Live Stream](lighter-live-stream/) | Live order books and trades over WebSocket | Lighter.xyz | Free key; each live message is metered | Top-of-book, spread, depth, and taker-flow views from a short live capture |
 
 ## Liquidation Heatmap
 
@@ -72,11 +73,30 @@ Outputs:
 - Volume, fill-count, and trade-size summaries
 - Price, volume, and open-interest overlays
 
+## Lighter Live Stream
+
+```bash
+cd lighter-live-stream
+pip install -r requirements.txt
+cp .env.example .env
+jupyter notebook lighter_live_stream.ipynb
+```
+
+Streams `lighter_orderbook` (with `interval_ms`) and `lighter_trades` from `wss://api.0xarchive.io/ws` for a short window (60 seconds by default), using the raw WebSocket protocol.
+
+Outputs:
+
+- Best bid, best ask, and mid from live top-20 books
+- Quoted spread in basis points and top-20 size on each side
+- Taker buy and sell volume, counting each trade once by `tid`
+- Capture summary with book, trade, and volume totals
+
 ## Choose Your Next Path
 
 | If you want... | Go here |
 | --- | --- |
 | A recurring API loop | [SDK docs](https://www.0xarchive.io/docs/sdks) |
+| Live streams or historical replay | [WebSocket docs](https://www.0xarchive.io/docs/websocket) |
 | A shell or agent workflow | [CLI docs](https://www.0xarchive.io/docs/cli) |
 | Claude Code, ChatGPT Codex, or other coding-agent context | [AI Clients](https://www.0xarchive.io/docs/ai-clients) |
 | File-based historical pulls | [Data Catalog](https://www.0xarchive.io/data) |
