@@ -1,6 +1,6 @@
 # 0xArchive Examples
 
-Notebook projects that turn 0xArchive market data into working analysis.
+Notebook and small-service projects that turn 0xArchive market data into working analysis.
 
 0xArchive is granular market data infrastructure for Hyperliquid and Lighter.xyz. Hyperliquid includes core perps, HIP-3 builder perps, HIP-4 outcome markets, and Hyperliquid Spot; Lighter.xyz is the second top-level venue API. Use these examples when you want to verify before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
 
@@ -24,6 +24,7 @@ cp .env.example .env
 | [Funding Rate Scanner](funding-rate-scanner/) | Funding rates and spread calculations | Hyperliquid and Lighter.xyz | Free key for supported BTC workflows | Cross-venue funding chart, spread bands, and carry view |
 | [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades, candles | Hyperliquid HIP-3 | Free key for HIP-3 workflows | Dashboard for builder-perp price, flow, and derivatives context |
 | [Lighter Live Stream](lighter-live-stream/) | Live order books and trades over WebSocket | Lighter.xyz | Free key; each live message is metered | Top-of-book, spread, depth, and taker-flow views from a short live capture |
+| [Webhook Dashboard](webhook-dashboard/) | Webhook deliveries: liquidations, venue health, watched wallets | Hyperliquid and Lighter | Build or higher (webhook delivery starts on Build) | Live dashboard fed by signed webhook deliveries |
 
 ## Liquidation Heatmap
 
@@ -90,6 +91,20 @@ Outputs:
 - Quoted spread in basis points and top-20 size on each side
 - Taker buy and sell volume, counting each trade once by `tid`
 - Capture summary with book, trade, and volume totals
+
+## Webhook Dashboard
+
+A dependency-free Node receiver plus a live page. It verifies the `0xa-signature` header over the raw body (both secrets are accepted during a rotation), acknowledges before doing any work, deduplicates on the event id, and streams events to the browser over server-sent events.
+
+```bash
+cd webhook-dashboard
+WEBHOOK_SECRET=whsec_... node server.js
+```
+
+Outputs:
+
+- Live event tape with per-type counts and deliveries per minute
+- Block-to-server latency split at `observed_at`, and the `late` flag on catch-up deliveries
 
 ## Choose Your Next Path
 
