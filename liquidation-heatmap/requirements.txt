@@ -1,4 +1,4 @@
-oxarchive>=0.6.0
+oxarchive>=1.12.0
 pandas>=2.0.0
 matplotlib>=3.7.0
 seaborn>=0.13.0
