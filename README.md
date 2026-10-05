@@ -2,7 +2,7 @@
 
 Notebook and small-service projects that turn 0xArchive market data into working analysis.
 
-0xArchive is granular market data infrastructure for Hyperliquid and Lighter.xyz. Hyperliquid includes core perps, HIP-3 builder perps, HIP-4 outcome markets, and Hyperliquid Spot; Lighter.xyz is the second top-level venue API. Use these examples when you want to verify before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
+0xArchive is granular market data infrastructure for Hyperliquid and Lighter. Hyperliquid includes core perps, HIP-3 builder perps, HIP-4 outcome markets, and Hyperliquid Spot; Lighter is the second top-level venue API. Use these examples when you want to verify before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
 
 ## Start Here
 
@@ -20,10 +20,10 @@ cp .env.example .env
 
 | Project | Dataset | Venue scope | Tier | First output |
 | --- | --- | --- | --- | --- |
-| [Liquidation Heatmap](liquidation-heatmap/) | Liquidation events and price context | Hyperliquid | Free key for supported BTC workflows | Heatmap and scatter views of BTC liquidation clusters |
-| [Funding Rate Scanner](funding-rate-scanner/) | Funding rates and spread calculations | Hyperliquid and Lighter.xyz | Free key for supported BTC workflows | Cross-venue funding chart, spread bands, and carry view |
-| [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades, candles | Hyperliquid HIP-3 | Free key for HIP-3 workflows | Dashboard for builder-perp price, flow, and derivatives context |
-| [Lighter Live Stream](lighter-live-stream/) | Live order books and trades over WebSocket | Lighter.xyz | Free key; each live message is metered | Top-of-book, spread, depth, and taker-flow views from a short live capture |
+| [Liquidation Heatmap](liquidation-heatmap/) | Liquidation events and price context | Hyperliquid | Any tier; Free covers the most recent 30 days | Heatmap and scatter views of BTC liquidation clusters |
+| [Funding Rate Scanner](funding-rate-scanner/) | Funding rates and spread calculations | Hyperliquid and Lighter | Any tier; Free covers the most recent 30 days | Cross-venue funding chart, spread bands, and carry view |
+| [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades | Hyperliquid HIP-3 | Any tier; Free covers the most recent 30 days | Dashboard for builder-perp price, flow, and derivatives context |
+| [Lighter Live Stream](lighter-live-stream/) | Live order books and trades over WebSocket | Lighter | Any tier; each live message is metered | Top-of-book, spread, depth, and taker-flow views from a short live capture |
 | [Webhook Dashboard](webhook-dashboard/) | Webhook deliveries: liquidations, venue health, watched wallets | Hyperliquid and Lighter | Build or higher (webhook delivery starts on Build) | Live dashboard fed by signed webhook deliveries |
 
 ## Liquidation Heatmap
