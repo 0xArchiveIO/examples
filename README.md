@@ -1,8 +1,19 @@
-# 0xArchive Examples
+<div align="center">
 
-Notebook and small-service projects that turn 0xArchive market data into working analysis.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/hero-dark.png">
+  <img alt="0xArchive examples: notebooks that chart the market. Real output from the liquidation heatmap, funding scanner, HIP-3 dashboard and Lighter live stream notebooks." src="assets/readme/hero-light.png" width="800">
+</picture>
 
-0xArchive is granular market data infrastructure for Hyperliquid and Lighter. Hyperliquid includes core perps, HIP-3 builder perps, HIP-4 outcome markets, and Hyperliquid Spot; Lighter is the second top-level venue API. Use these examples when you want to verify before wiring an SDK, building an API loop, or exporting Parquet from the Data Catalog.
+<img alt="python: 3.10+" src="https://img.shields.io/badge/python-3.10+-21C55E?style=flat-square&labelColor=3a3a37"> <img alt="notebooks: Jupyter" src="https://img.shields.io/badge/notebooks-Jupyter-21C55E?style=flat-square&labelColor=3a3a37"> <img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-21C55E?style=flat-square&labelColor=3a3a37"> <img alt="data: Hyperliquid · Lighter" src="https://img.shields.io/badge/data-Hyperliquid_·_Lighter-21C55E?style=flat-square&labelColor=3a3a37">
+
+[Start here](#start-here) · [Projects](#projects) · [Next paths](#choose-your-next-path) · [Docs](https://docs.0xarchive.io)
+
+</div>
+
+Five working projects that turn Hyperliquid and Lighter data into analysis. Run one as it is, check the output against what you expect, then adapt it into your own pipeline.
+
+<sub>Every chart on this page is real output from these notebooks, run on 2026-10-26 with a 0xArchive API key.</sub>
 
 ## Start Here
 
@@ -28,6 +39,8 @@ cp .env.example .env
 
 ## Liquidation Heatmap
 
+<img alt="BTC liquidation events, longs in red and shorts in green, over price" src="assets/readme/liquidation-heatmap.png" width="800">
+
 ```bash
 cd liquidation-heatmap
 pip install -r requirements.txt
@@ -43,6 +56,8 @@ Outputs:
 - Size distribution and P99 cascade detection
 
 ## Funding Rate Scanner
+
+<img alt="BTC annualized funding on Hyperliquid and Lighter over 7 days, with the spread below" src="assets/readme/funding-rate-scanner.png" width="800">
 
 ```bash
 cd funding-rate-scanner
@@ -60,6 +75,8 @@ Outputs:
 
 ## HIP-3 Asset Dashboard
 
+<img alt="xyz:NVDA price, volume and open interest over 29 days" src="assets/readme/hip3-asset-dashboard.png" width="800">
+
 ```bash
 cd hip3-asset-dashboard
 pip install -r requirements.txt
@@ -75,6 +92,8 @@ Outputs:
 - Price, volume, and open-interest overlays
 
 ## Lighter Live Stream
+
+<img alt="Lighter BTC top of book, spread and depth from a 60-second live capture" src="assets/readme/lighter-live-stream.png" width="800">
 
 ```bash
 cd lighter-live-stream
