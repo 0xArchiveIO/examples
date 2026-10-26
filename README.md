@@ -13,8 +13,6 @@
 
 Five working projects that turn Hyperliquid and Lighter data into analysis. Run one as it is, check the output against what you expect, then adapt it into your own pipeline.
 
-<sub>Every chart on this page is real output from these notebooks, run on 2026-10-26 with a 0xArchive API key.</sub>
-
 ## Start Here
 
 1. Create an account at [0xArchive signup](https://www.0xarchive.io/signup).
