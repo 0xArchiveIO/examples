@@ -66,7 +66,7 @@ function verifySignature(sigHeader, rawBody) {
   for (const secret of SECRETS) {
     const expected = crypto.createHmac("sha256", secret).update(`${t}.`).update(rawBody).digest("hex");
     const ok = sigs.some(
-      (s) => s.length === expected.length && crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(s))
+      (s) => /^[0-9a-fA-F]{64}$/.test(s) && crypto.timingSafeEqual(Buffer.from(expected, "hex"), Buffer.from(s, "hex"))
     );
     if (ok) return { ok: true };
   }
@@ -215,7 +215,7 @@ function readBody(req) {
   });
 }
 
-const server = http.createServer(async (req, res) => {
+async function handle(req, res) {
   const url = new URL(req.url, "http://localhost");
 
   // The webhook receiver. Acknowledge fast; everything else is bookkeeping.
@@ -244,6 +244,10 @@ const server = http.createServer(async (req, res) => {
     } catch {
       stats.rejected += 1;
       return send(res, 400, JSON.stringify({ error: "body is not JSON" }));
+    }
+    if (payload === null || typeof payload !== "object" || Array.isArray(payload)) {
+      stats.rejected += 1;
+      return send(res, 400, JSON.stringify({ error: "body is not a JSON object" }));
     }
     const id = payload.id || req.headers["0xa-event-id"];
     if (!id) {
@@ -310,6 +314,13 @@ const server = http.createServer(async (req, res) => {
   }
   const types = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml" };
   return send(res, 200, fs.readFileSync(full), types[path.extname(full)] || "application/octet-stream");
+}
+
+const server = http.createServer((req, res) => {
+  handle(req, res).catch(() => {
+    if (!res.headersSent) send(res, 400, JSON.stringify({ error: "bad request" }));
+    else res.end();
+  });
 });
 
 server.listen(PORT, "127.0.0.1", () => {
