@@ -1,6 +1,6 @@
 """Pull every Lighter trade for a market and window, with taker buy/sell volume and VWAP.
 
-    OXARCHIVE_API_KEY=... python3 lighter_trades.py BTC 2026-11-10T15:00:00Z 2026-11-10T16:00:00Z --csv btc-trades.csv
+    OXARCHIVE_API_KEY=... python3 lighter_trades.py BTC "$(date -u -d '10 days ago' +%F)T15:00:00Z" "$(date -u -d '10 days ago' +%F)T16:00:00Z" --csv btc-trades.csv
 
 Lighter trades are served once finalized; meta.finalized_through says how far that is.
 Every fill has two rows, the maker's and the taker's, sharing trade_id. The taker row (crossed = true) carries the

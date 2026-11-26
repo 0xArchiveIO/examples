@@ -1,8 +1,8 @@
 """Rebuild the Hyperliquid order book at any instant, order by order, with the wallet behind each order.
 
-    OXARCHIVE_API_KEY=... python3 l4_book.py BTC 2026-11-10T15:00:00Z --depth 10
+    OXARCHIVE_API_KEY=... python3 l4_book.py BTC "$(date -u -d yesterday +%F)T15:00:00Z" --orders 10
 
-Shows the best levels, how many distinct wallets rest on each side, and the largest wallets by resting size.
+Shows the best levels and the largest wallets by resting size.
 HIP-3 markets: pass --hip3 (e.g. xyz:NVDA). L4 history starts 2026-03-11.
 """
 import argparse

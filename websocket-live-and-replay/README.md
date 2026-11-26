@@ -1,6 +1,6 @@
 # WebSocket live and replay
 
-Stream live Hyperliquid or Lighter trades, or replay any past window on the same socket. Reconnects with backoff after a drop.
+Stream live Hyperliquid or Lighter trades, or replay any past window on the same socket. Reconnects with backoff after a drop, up to 8 times, and exits on a refused key or subscription.
 
 Node 22 or newer (built-in WebSocket), no packages.
 
@@ -8,7 +8,8 @@ Node 22 or newer (built-in WebSocket), no packages.
 export OXARCHIVE_API_KEY=0xa_your_api_key
 node stream.mjs live trades BTC
 node stream.mjs live lighter_trades BTC
-node stream.mjs replay trades BTC 2026-11-10T15:00:00Z 2026-11-10T15:01:00Z
+D=$(date -u -d yesterday +%F)   # macOS: date -u -v-1d +%F
+node stream.mjs replay trades BTC "${D}T15:00:00Z" "${D}T15:01:00Z"
 ```
 
 ## Output
