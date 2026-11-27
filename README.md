@@ -11,18 +11,19 @@
 
 </div>
 
-Five working projects that turn Hyperliquid and Lighter data into analysis. Run one as it is, check the output against what you expect, then adapt it into your own pipeline.
+Nine working projects that turn Hyperliquid and Lighter data into analysis: five notebooks and four command-line scripts. Run one as it is, check the output against what you expect, then adapt it into your own pipeline.
 
 ## Start Here
 
 1. Create an account at [0xArchive signup](https://www.0xarchive.io/signup).
 2. Copy an API key from the dashboard.
-3. Choose the notebook that matches the dataset you want to inspect.
-4. Run the notebook once before adapting it into a pipeline.
+3. Choose the project that matches the dataset you want to inspect.
+4. Run it once as it is before adapting it into a pipeline.
+
+Notebooks read the key from a `.env` file in their folder (`cp .env.example .env`, then add `OXARCHIVE_API_KEY=0xa_your_api_key`). The command-line scripts read it from the environment:
 
 ```bash
-cp .env.example .env
-# Add OXARCHIVE_API_KEY=0xa_your_api_key to .env
+export OXARCHIVE_API_KEY=0xa_your_api_key
 ```
 
 ## Projects
@@ -32,8 +33,12 @@ cp .env.example .env
 | [Liquidation Heatmap](liquidation-heatmap/) | Liquidation events and price context | Hyperliquid | Any tier; Free covers the most recent 30 days | Heatmap and scatter views of BTC liquidation clusters |
 | [Funding Rate Scanner](funding-rate-scanner/) | Funding rates and spread calculations | Hyperliquid and Lighter | Any tier; Free covers the most recent 30 days | Cross-venue funding chart, spread bands, and carry view |
 | [HIP-3 Asset Dashboard](hip3-asset-dashboard/) | Funding, open interest, trades | Hyperliquid HIP-3 | Any tier; Free covers the most recent 30 days | Dashboard for builder-perp price, flow, and derivatives context |
-| [Lighter Live Stream](lighter-live-stream/) | Live order books and trades over WebSocket | Lighter | Any tier; each live message is metered | Top-of-book, spread, depth, and taker-flow views from a short live capture |
+| [Lighter Live Stream](lighter-live-stream/) | Live order books and trades over WebSocket | Lighter | Live: Free for an account's first 30 days, then Build; each live message is metered | Top-of-book, spread, depth, and taker-flow views from a short live capture |
 | [Webhook Dashboard](webhook-dashboard/) | Webhook deliveries: liquidations, venue health, watched wallets | Hyperliquid and Lighter | Build or higher (webhook delivery starts on Build) | Live dashboard fed by signed webhook deliveries |
+| [Candles to CSV](hyperliquid-candles-to-csv/) | OHLCV candles, 1m to 1w | Hyperliquid, HIP-3 and Lighter | Any tier; Free covers the most recent 30 days | Every candle in a window as CSV |
+| [Lighter Trades History](lighter-trades-history/) | Trades | Lighter and Lighter on Robinhood Chain | Any tier; Free covers the most recent 30 days | Every trade as CSV, taker buy and sell volume, VWAP |
+| [L4 Book at a Chosen Time](l4-book-at-a-chosen-time/) | L4 orders with wallets | Hyperliquid and HIP-3 | Any tier; Free covers the most recent 30 days | The order book at a moment, by price level and by wallet |
+| [WebSocket Live and Replay](websocket-live-and-replay/) | Live trades and replay | Hyperliquid and Lighter | Live: Free for an account's first 30 days, then Build. Replay: Free for the most recent 30 days | A live stream or a replayed window on one socket |
 
 ## Liquidation Heatmap
 
