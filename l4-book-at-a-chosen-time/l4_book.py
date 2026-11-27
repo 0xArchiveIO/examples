@@ -1,4 +1,4 @@
-"""Rebuild the Hyperliquid order book at any instant, order by order, with the wallet behind each order.
+"""Rebuild the Hyperliquid order book at a chosen time, order by order, with the wallet behind each order.
 
     OXARCHIVE_API_KEY=... python3 l4_book.py BTC "$(date -u -d yesterday +%F)T15:00:00Z" --orders 10
 

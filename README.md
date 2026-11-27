@@ -37,7 +37,7 @@ export OXARCHIVE_API_KEY=0xa_your_api_key
 | [Webhook Dashboard](webhook-dashboard/) | Webhook deliveries: liquidations, venue health, watched wallets | Hyperliquid and Lighter | Build or higher (webhook delivery starts on Build) | Live dashboard fed by signed webhook deliveries |
 | [Candles to CSV](hyperliquid-candles-to-csv/) | OHLCV candles, 1m to 1w | Hyperliquid, HIP-3 and Lighter | Any tier; Free covers the most recent 30 days | Every candle in a window as CSV |
 | [Lighter Trades History](lighter-trades-history/) | Trades | Lighter and Lighter on Robinhood Chain | Any tier; Free covers the most recent 30 days | Every trade as CSV, taker buy and sell volume, VWAP |
-| [L4 Book at Any Instant](l4-book-at-any-instant/) | L4 orders with wallets | Hyperliquid and HIP-3 | Any tier; Free covers the most recent 30 days | The order book at a moment, by price level and by wallet |
+| [L4 Book at a Chosen Time](l4-book-at-a-chosen-time/) | L4 orders with wallets | Hyperliquid and HIP-3 | Any tier; Free covers the most recent 30 days | The order book at a moment, by price level and by wallet |
 | [WebSocket Live and Replay](websocket-live-and-replay/) | Live trades and replay | Hyperliquid and Lighter | Live: Free for an account's first 30 days, then Build. Replay: Free for the most recent 30 days | A live stream or a replayed window on one socket |
 
 ## Liquidation Heatmap
